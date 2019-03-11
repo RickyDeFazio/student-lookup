@@ -1,50 +1,133 @@
-/******************************************
+/*
 Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
-******************************************/
-   
-// Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
+*/
+
+/*
+  Global variables
+*/
+
+const studentList = document.querySelector('.student-list');
+const listItems = studentList.children;
+const page = document.querySelector('.page');
 
 
-/*** 
-   Add your global variables that store the DOM elements you will 
-   need to reference and/or manipulate. 
-   
-   But be mindful of which variables should be global and which 
-   should be locally scoped to one of the two main functions you're 
-   going to create. A good general rule of thumb is if the variable 
-   will only be used inside of a function, then it can be locally 
-   scoped to that function.
-***/
+// creates button 
+function createButton() {
+  return document.createElement('button');
+}
 
+// creates buttons individually but I want to create them dynamically depending on number of pages needed for students
 
+const pageButtons1 = createButton();
+const pageButtons2 = createButton();
+const pageButtons3 = createButton();
+const pageButtons4 = createButton();
+const pageButtons5 = createButton();
+const pageButtons6 = createButton();
 
+let numberOfPages = 0;
 
 /*** 
    Create the `showPage` function to hide all of the items in the 
    list except for the ten you want to show.
 
-   Pro Tips: 
-     - Keep in mind that with a list of 54 students, the last page 
-       will only display four.
-     - Remember that the first student has an index of 0.
-     - Remember that a function `parameter` goes in the parens when 
-       you initially define the function, and it acts as a variable 
-       or a placeholder to represent the actual function `argument` 
-       that will be passed into the parens later when you call or 
-       "invoke" the function 
-***/
+/*
+  ShowPage function displays 10 students depending on what list is passed into it.
+*/
 
 
-
+function showPage(listOfStudents) {
+  for (let i = 0; i < listOfStudents.length; i++){
+    numberOfPages = i / 10;
+    if (i < 10) {
+      listOfStudents[i].style.display = 'block';
+    } else {
+      listOfStudents[i].style.display = 'none';
+    }
+  }
+  numberOfPages = Math.ceil(numberOfPages);
+  return numberOfPages;
+}
+showPage(listItems);
 
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons.
 ***/
 
+function appendPageLinks(button, value) {
+  page.appendChild(button);
+  button.textContent = value;
+}
+
+// appends buttons individually
+appendPageLinks(pageButtons1, "1");
+appendPageLinks(pageButtons2, "2");
+appendPageLinks(pageButtons3, "3");
+appendPageLinks(pageButtons4, "4");
+appendPageLinks(pageButtons5, "5");
+appendPageLinks(pageButtons6, "6");
 
 
+// create event listener , when button clicked, show corresponding 10 students
 
+pageButtons1.addEventListener('click', () => {
+  for (let i = 0; i < listItems.length; i++){
+    if (i < 10) {
+      listItems[i].style.display = 'block';
+    } else {
+      listItems[i].style.display = 'none';
+    }
+  }
+});
 
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
+pageButtons2.addEventListener('click', () => {
+  for (let i = 0; i < listItems.length; i++){
+    if (i < 10 || i > 19) {
+      listItems[i].style.display = 'none';
+    } else {
+      listItems[i].style.display = 'block';      
+    }
+  }
+});
+
+pageButtons3.addEventListener('click', () => {
+  for (let i = 0; i < listItems.length; i++){
+    if (i < 20 || i > 29) {
+      listItems[i].style.display = 'none';
+    } else {
+      listItems[i].style.display = 'block';      
+    }
+  }
+});
+
+pageButtons4.addEventListener('click', () => {
+  for (let i = 0; i < listItems.length; i++){
+    if (i < 30 || i > 39) {
+      listItems[i].style.display = 'none';
+    } else {
+      listItems[i].style.display = 'block';      
+    }
+  }
+});
+
+pageButtons5.addEventListener('click', () => {
+  for (let i = 0; i < listItems.length; i++){
+    if (i < 40 || i > 49) {
+      listItems[i].style.display = 'none';
+    } else {
+      listItems[i].style.display = 'block';      
+    }
+  }
+});
+
+pageButtons6.addEventListener('click', () => {
+  for (let i = 0; i < listItems.length; i++){
+    if (i < 50 || i > 59) {
+      listItems[i].style.display = 'none';
+    } else {
+      listItems[i].style.display = 'block';      
+    }
+  }
+});
