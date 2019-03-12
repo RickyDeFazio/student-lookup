@@ -11,6 +11,19 @@ const listItems = studentList.children;
 const page = document.querySelector('.page');
 let numberOfPages = 0;
 
+// search functionality added here
+const pageHeader = document.querySelector('.page-header');
+const studentSearch = document.createElement('div');
+studentSearch.className = "student-search";
+pageHeader.appendChild(studentSearch);
+const input = document.createElement('input');
+studentSearch.appendChild(input);
+input.placeholder = "Search for students...";
+const button = document.createElement('button');
+button.textContent = "Search";
+studentSearch.appendChild(button);
+
+
 
 /*
   Hides all students except for the 10 on the chosen page.
@@ -31,12 +44,12 @@ showPage(listItems, 1);
 
 
 /*
-  1. Iterate through list to determine how many pages are needed.
-  2. Create div and ul to append page links.
-  3. Create an li and a tag for each page.
-  4. Add event listener for each page link.
-  5. Remove 'active' class on previously clicked page link.
-  6. Add 'active' class to most recent page clicked.
+  1. Iterates through list to determine how many pages are needed.
+  2. Creates div and ul to append page links.
+  3. Creates an li and a tag for each page.
+  4. Adds event listener for each page link.
+  5. Removes 'active' class on previously clicked page link.
+  6. Adds 'active' class to most recent page clicked.
 */
 
 function appendPageLinks(list) {
