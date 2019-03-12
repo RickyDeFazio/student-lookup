@@ -3,26 +3,27 @@ Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 */
 
-/*
-  Global variables
-*/
 const studentList = document.querySelector('.student-list');
 const listItems = studentList.children;
 const page = document.querySelector('.page');
 let numberOfPages = 0;
 
-// search functionality added here
+/* 
+  search functionality added here
+*/
+
 const pageHeader = document.querySelector('.page-header');
 const studentSearch = document.createElement('div');
 studentSearch.className = "student-search";
 pageHeader.appendChild(studentSearch);
+
 const input = document.createElement('input');
 studentSearch.appendChild(input);
 input.placeholder = "Search for students...";
+
 const button = document.createElement('button');
 button.textContent = "Search";
 studentSearch.appendChild(button);
-
 
 
 /*
