@@ -4,19 +4,16 @@ FSJS project 2 - List Filter and Pagination
 */
 
 /*
-   Add your global variables that store the DOM elements you will
-   need to reference and/or manipulate.
+  Global variables
 */
 const studentList = document.querySelector('.student-list');
 const listItems = studentList.children;
 const page = document.querySelector('.page');
-
 let numberOfPages = 0;
 
 
 /*
-   Create the `showPage` function to hide all of the items in the
-   list except for the ten you want to show.
+  Hides all students except for the 10 on the chosen page.
 */
 
 function showPage(listOfStudents, page) {
@@ -29,11 +26,17 @@ function showPage(listOfStudents, page) {
   }
 }
 
+// Shows the first 10 students when the page initially loads
 showPage(listItems, 1);
 
+
 /*
-   Create the `appendPageLinks function` to generate, append, and add
-   functionality to the pagination buttons.
+  1. Iterate through list to determine how many pages are needed.
+  2. Create div and ul to append page links.
+  3. Create an li and a tag for each page.
+  4. Add event listener for each page link.
+  5. Remove 'active' class on previously clicked page link.
+  6. Add 'active' class to most recent page clicked.
 */
 
 function appendPageLinks(list) {
@@ -41,6 +44,7 @@ function appendPageLinks(list) {
     numberOfPages = i / 10;
   }
   numberOfPages = Math.ceil(numberOfPages);
+
   const paginationDiv = document.createElement('div');
   paginationDiv.className = "pagination";
   page.appendChild(paginationDiv);
@@ -53,6 +57,7 @@ function appendPageLinks(list) {
     const a = document.createElement('a');
     li.appendChild(a);
     a.textContent = i;
+    
     a.addEventListener('click', (e) => {
       showPage(listItems, i);
       const allATags = document.querySelectorAll('a');
