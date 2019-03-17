@@ -6,13 +6,10 @@ FSJS project 2 - List Filter and Pagination
 const studentList = document.querySelector('.student-list');
 const listItems = studentList.children;
 const page = document.querySelector('.page');
+let numberOfPages = 0;
 
-
-// Result
 const result = document.createElement('h1');
 page.appendChild(result);
-
-let numberOfPages = 0;
 
 /**
  * Add Search Elements
