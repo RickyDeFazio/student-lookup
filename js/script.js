@@ -94,7 +94,6 @@ function appendPageLinks(list) {
 // Shows the initial page links when the page first loads
 appendPageLinks(listItems);
 
-
 /*
  * 1. Searches for students by name and email.
  * 2. Shows students matching input.
@@ -102,13 +101,13 @@ appendPageLinks(listItems);
  * 4. Displays 'no results found' if no student matches.
  */
 
-function searchForStudents(list){
+function searchForStudents(list) {
   const studentsFound = [];
   for (let i = 0; i < list.length; i++) {
     const studentDetails = document.querySelectorAll('.student-details');
     const h3 = studentDetails[i].children[1];
     const email = document.querySelectorAll('.email');
-    if (h3.textContent.includes(input.value) || email[i].textContent.includes(input.value)) {
+    if (h3.textContent.toLowerCase().includes(input.value.toLowerCase()) || email[i].textContent.toLowerCase().includes(input.value.toLowerCase())) {
       studentsFound.push(list[i]);
     } else {
       list[i].style.display = 'none';
