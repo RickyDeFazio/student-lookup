@@ -19,10 +19,6 @@ const input = document.createElement('input');
 studentSearch.appendChild(input);
 input.placeholder = "Search for students...";
 
-const submitButton = document.createElement('button');
-submitButton.textContent = "Search";
-studentSearch.appendChild(submitButton);
-
 
 /*
   Hides all students except for the 10 on the chosen page.
@@ -118,8 +114,5 @@ function searchForStudents(list) {
 }
 
 input.addEventListener('keyup', () => {
-  searchForStudents(listItems);
-});
-submitButton.addEventListener('click', () => {
   searchForStudents(listItems);
 });
