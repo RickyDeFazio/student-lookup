@@ -155,7 +155,8 @@ function searchForStudents(students) {
   showPage(studentsFound, 1);
 
   if (studentsFound.length === 0 && input.value.length > 0) {
-    result.textContent = "No results found";
+    result.textContent = "No Results Found";
+    result.style.color = 'hotpink';
   } else {
     result.textContent = "";
     document.querySelector('.pagination a').classList.add('active');
