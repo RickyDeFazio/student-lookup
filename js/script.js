@@ -46,6 +46,7 @@ async function getStudents() {
  * Acquires student data and creates DOM structure for students
  */
 async function populateStudents() {
+  studentList.innerHTML = 'Loading students...'
   const data = await getStudents();
   const { results: users } = data;
   let html = ``;
