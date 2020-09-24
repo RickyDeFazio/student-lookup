@@ -110,3 +110,7 @@ body {
   color: #fff;
   cursor: pointer;
 }
+
+.page h2 {
+  font-size: 2rem;
+}
