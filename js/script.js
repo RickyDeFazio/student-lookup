@@ -20,7 +20,7 @@ pageHeader.appendChild(studentSearch);
 studentSearch.appendChild(input);
 
 /**
- *
+ * Main logic for initial setup
  */
 async function main() {
   await populateStudents();
@@ -30,7 +30,7 @@ async function main() {
 }
 
 /**
- *
+ * Fetches students from API
  */
 async function getStudents() {
   try {
@@ -43,7 +43,7 @@ async function getStudents() {
 }
 
 /**
- *
+ * Acquires student data and creates DOM structure for students
  */
 async function populateStudents() {
   const data = await getStudents();
@@ -162,6 +162,7 @@ function searchForStudents(students) {
   }
 }
 
+// Event listeners
 input.addEventListener('keyup', () => {
   searchForStudents(listItems);
 });
