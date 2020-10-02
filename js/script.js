@@ -1,5 +1,4 @@
 // Global Variables
-
 const page = document.querySelector('.page');
 const pageHeader = document.querySelector('.page-header');
 const studentList = document.createElement('ul');
